@@ -1,201 +1,104 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clarity Over Chaos — Visual Identity</title>
-  <meta name="description" content="Clarity Over Chaos is a visual and psychological framework for masculine sovereignty. A lens for modern men forging direction in a noisy world." />
-  <meta property="og:title" content="Clarity Over Chaos — Masculine Sovereignty" />
-  <meta property="og:description" content="Frameworks, visuals, and clarity protocols for sovereign men navigating a chaotic world." />
-  <meta property="og:image" content="https://yourdomain.com/preview.jpg" />
-  <meta property="og:url" content="https://yourdomain.com" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Clarity Over Chaos — Masculine Sovereignty" />
-  <meta name="twitter:description" content="High-signal clarity protocols and visuals for the modern sovereign man." />
-  <meta name="twitter:image" content="https://yourdomain.com/preview.jpg" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarity Over Chaos</title>
+  
+  <!-- SEO & Preview Enhancements -->
+  <meta name="description" content="Explore the foundation of masculine sovereignty through clarity, stillness, and signal.">
+  <meta property="og:title" content="Clarity Over Chaos">
+  <meta property="og:description" content="Explore the foundation of masculine sovereignty through clarity, stillness, and signal.">
+  <meta property="og:image" content="https://masculineintel.github.io/Clarity-over-chaos/cocbanner.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://masculineintel.github.io/Clarity-over-chaos/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Clarity Over Chaos">
+  <meta name="twitter:description" content="Explore the foundation of masculine sovereignty through clarity, stillness, and signal.">
+  <meta name="twitter:image" content="https://masculineintel.github.io/Clarity-over-chaos/cocbanner.jpg">
 
   <style>
     body {
-      font-family: 'Cormorant Garamond', serif;
       background-color: #0e0e0e;
-      color: #f0f0f0;
-      margin: 0;
-      padding: 40px 20px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-align: center;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      padding: 16px;
     }
-
-    h1 {
-      font-size: 2.7rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 20px;
-      user-select: none;
-      color: #ffffff;
+    header, section {
+      margin-bottom: 2.5rem;
+      padding: 1rem;
     }
-
-    .intro {
-      font-size: 1.15rem;
-      max-width: 800px;
-      margin: 0 auto 60px auto;
-      line-height: 1.7;
-      color: #dddddd;
-      user-select: none;
-    }
-
-    .mission-section {
-      margin: 60px auto;
-      max-width: 800px;
-      color: #dddddd;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      text-align: left;
-      padding: 0 10px;
-    }
-
-    .mission-section h2 {
-      font-size: 1.7rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-      color: #ffffff;
-    }
-
-    .image-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 10px;
-    }
-
-    .image-box {
-      background-color: #1a1a1a;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      max-width: 400px;
-      touch-action: manipulation;
-    }
-
-    .image-box:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
-    }
-
     img {
       width: 100%;
-      max-width: 400px;
-      border-radius: 8px;
-      opacity: 0;
-      animation: fadeIn 2s forwards;
-      transition: transform 0.3s ease;
-      user-select: none;
+      max-width: 700px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
     }
-
-    img:hover {
-      transform: scale(1.02);
-    }
-
-    img[loading="lazy"] {
-      loading: lazy;
-    }
-
-    .image-box h2 {
-      font-size: 1.05rem;
-      color: #bbbbbb;
-      margin-top: 10px;
-      font-style: italic;
-      font-weight: 400;
-      user-select: none;
-    }
-
-    .footer {
-      margin-top: 80px;
-      font-size: 1rem;
-      color: #999999;
-    }
-
-    .footer a {
-      color: #cccccc;
-      text-decoration: none;
-      border-bottom: 1px dotted #555;
-      padding: 6px 12px;
-      display: inline-block;
-    }
-
-    .footer a:hover {
+    h1, h2 {
       color: #ffffff;
-      border-bottom: 1px solid #fff;
+      margin-top: 1.5rem;
     }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+    a {
+      color: #4db8ff;
+      text-decoration: none;
     }
-
-    @media (max-width: 440px) {
-      .image-container {
-        flex-direction: column;
-        gap: 30px;
-      }
-
-      .image-box {
-        max-width: 90vw;
-        padding: 24px;
-      }
-
-      .mission-section {
-        text-align: center;
+    a:hover {
+      text-decoration: underline;
+    }
+    .center {
+      text-align: center;
+    }
+    .button-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: #1a1a1a;
+      color: #fff;
+      border-radius: 6px;
+      border: 1px solid #444;
+    }
+    @media (hover: hover) {
+      .button-link:hover {
+        background: #333;
       }
     }
   </style>
 </head>
 
 <body>
-  <h1>Clarity Over Chaos</h1>
-  <p class="intro">
-    Clarity Over Chaos is more than a phrase — it's a lens.  
-    This space exists for men forging sovereignty in a noisy world.  
-    Through visual identity, written frameworks, and high-signal feedback loops,  
-    we cut through emotional static and return to grounded power.
-  </p>
+  <header class="center">
+    <h1>Clarity Over Chaos</h1>
+    <p>Foundations of Masculine Sovereignty, Discipline & Still Fire Energy</p>
+    <a href="https://twitter.com/MasculineIntel" class="button-link" target="_blank">Follow on Twitter</a>
+  </header>
 
-  <div class="mission-section">
+  <section>
     <h2>Mission</h2>
-    <p>
-      We believe that masculine sovereignty is not about domination — it's about direction.  
-      In a world engineered for distraction, the sovereign man moves from a grounded center.  
-      He is not easily swayed, manipulated, or fragmented.  
-      He creates structure within and signals truth without.  
-      <br><br>
-      Clarity Over Chaos exists to sharpen that edge — through content, visual cues, and feedback protocols that challenge the noise and ignite inner alignment.
-    </p>
-  </div>
+    <p>Clarity Over Chaos is a signal for men reclaiming grounded power in a noisy world. It is a movement for stillness over reaction, purpose over distraction, and high-signal sovereignty in an age of digital erosion.</p>
+  </section>
 
-  <div class="image-container">
-    <div class="image-box">
-      <img src="Wolf3.jpg" alt="Wolf Silhouette" loading="lazy" />
-      <h2>“Move in silence. Lead with clarity.”</h2>
-    </div>
-    <div class="image-box">
-      <img src="Hand1.jpg" alt="Still Fire Energy" loading="lazy" />
-      <h2>“Power doesn’t shout. It signals.”</h2>
-    </div>
-    <div class="image-box">
-      <img src="Darkman2.jpg" alt="Dark Typography / Still Fire" loading="lazy" />
-      <h2>“Masculine presence is quiet certainty.”</h2>
-    </div>
-  </div>
+  <section>
+    <h2>What is Masculine Sovereignty?</h2>
+    <p>Masculine sovereignty is the unshakable clarity that comes from inner alignment. It's the disciplined pursuit of purpose, emotional depth without chaos, and the ability to lead without losing yourself. Sovereignty means owning your time, your energy, and your signal in a world that profits off confusion.</p>
+  </section>
 
-  <div class="footer">
-    Follow the movement → <a href="https://twitter.com/MasculineIntel" target="_blank">@MasculineIntel</a>
-  </div>
+  <section class="center">
+    <h2>Visual Signals</h2>
+    <img src="wolf.png" alt="Wolf Silhouette — Calm & Aware" loading="lazy">
+    <p>Calm & Aware — Not passive, but conscious. Always ready, never loud.</p>
+
+    <img src="stillfire.png" alt="Still Fire — Controlled Intensity" loading="lazy">
+    <p>Still Fire — The power of held energy. Not wasted on reaction, but channeled with precision.</p>
+
+    <img src="darktype.png" alt="Typography — Signal Through Design" loading="lazy">
+    <p>Typography — Each word, a strike. Each phrase, deliberate. Design matches energy.</p>
+  </section>
+
+  <footer class="center">
+    <p>&copy; 2025 Clarity Over Chaos. All rights reserved.</p>
+  </footer>
 </body>
 </html>
