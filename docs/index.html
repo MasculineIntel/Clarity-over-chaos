@@ -2,155 +2,202 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0e0e0e" />
-  <meta name="description" content="A signal in the noise. Masculine clarity in the modern world." />
-  <meta property="og:title" content="Clarity Over Chaos" />
-  <meta property="og:description" content="Masculine sovereignty. Quiet fire. A signal in the noise." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clarity Over Chaos — Visual Identity</title>
+
+  <!-- Social Sharing & SEO -->
+  <meta name="description" content="Clarity Over Chaos is a visual and psychological framework for masculine sovereignty. A lens for modern men forging direction in a noisy world." />
+  <meta property="og:title" content="Clarity Over Chaos — Masculine Sovereignty" />
+  <meta property="og:description" content="Frameworks, visuals, and clarity protocols for sovereign men navigating a chaotic world." />
   <meta property="og:image" content="https://masculineintel.github.io/Clarity-over-chaos/cocbanner.jpg" />
+  <meta property="og:url" content="https://masculineintel.github.io/Clarity-over-chaos/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Clarity Over Chaos" />
-  <meta name="twitter:description" content="Masculine sovereignty. Quiet fire. A signal in the noise." />
+  <meta name="twitter:title" content="Clarity Over Chaos — Masculine Sovereignty" />
+  <meta name="twitter:description" content="High-signal clarity protocols and visuals for the modern sovereign man." />
   <meta name="twitter:image" content="https://masculineintel.github.io/Clarity-over-chaos/cocbanner.jpg" />
 
-  <title>Clarity Over Chaos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet" />
+
   <style>
     body {
-      font-family: 'Georgia', serif;
+      font-family: 'Cormorant Garamond', serif;
       background-color: #0e0e0e;
-      color: #e0e0e0;
+      color: #f0f0f0;
       margin: 0;
-      padding: 0 20px;
-      line-height: 1.6;
-    }
-
-    header {
+      padding: 40px 20px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       text-align: center;
-      padding: 60px 20px 20px;
     }
 
     h1 {
-      font-size: 3em;
-      margin-bottom: 0.2em;
-      color: #f4f4f4;
+      font-size: 2.7rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      user-select: none;
+      color: #ffffff;
     }
 
-    p {
-      font-size: 1.15em;
+    .intro {
+      font-size: 1.15rem;
       max-width: 800px;
-      margin: 0 auto 1.5em;
-      color: #ccc;
+      margin: 0 auto 60px auto;
+      line-height: 1.7;
+      color: #dddddd;
+      user-select: none;
     }
 
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      padding: 40px 0;
-      max-width: 1200px;
+    .mission-section {
+      margin: 60px auto;
+      max-width: 800px;
+      color: #dddddd;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: left;
+      padding: 0 10px;
+    }
+
+    .mission-section h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1280px;
       margin: 0 auto;
+      padding: 10px;
     }
 
-    .image-grid figure {
-      margin: 0;
-      text-align: center;
-    }
-
-    .image-grid img {
-      width: 100%;
-      height: auto;
+    .image-box {
+      background-color: #1a1a1a;
       border-radius: 12px;
-      display: block;
-      margin-bottom: 0.5em;
+      padding: 20px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      max-width: 400px;
+      touch-action: manipulation;
     }
 
-    .image-grid figcaption {
-      font-size: 0.95em;
-      color: #999;
+    .image-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
     }
 
-    .section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px 0 40px;
+    img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      transition: transform 0.3s ease;
+      user-select: none;
     }
 
-    h2 {
-      font-size: 2em;
-      color: #fefefe;
-      margin-bottom: 0.5em;
+    img:hover {
+      transform: scale(1.02);
+    }
+
+    img[loading="lazy"] {
+      loading: lazy;
+    }
+
+    .image-box h2 {
+      font-size: 1.05rem;
+      color: #bbbbbb;
+      margin-top: 10px;
+      font-style: italic;
+      font-weight: 400;
+      user-select: none;
     }
 
     .footer {
-      text-align: center;
-      padding: 40px 0;
-      border-top: 1px solid #333;
-      font-size: 0.9em;
-      color: #777;
+      margin-top: 80px;
+      font-size: 1rem;
+      color: #999999;
     }
 
     .footer a {
-      color: #999;
+      color: #cccccc;
       text-decoration: none;
-      margin: 0 10px;
+      border-bottom: 1px dotted #555;
+      padding: 6px 12px;
       display: inline-block;
-      padding: 8px 14px;
-      transition: color 0.3s ease;
     }
 
     .footer a:hover {
-      color: #fff;
+      color: #ffffff;
+      border-bottom: 1px solid #fff;
     }
 
-    @media (max-width: 500px) {
-      .footer a {
-        padding: 12px 18px;
-        font-size: 1.05rem;
-        border-bottom: 1px solid #444;
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .image-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .image-box {
+        max-width: 90vw;
+        padding: 24px;
+      }
+
+      .mission-section {
+        text-align: center;
       }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>Clarity Over Chaos</h1>
-    <p>A signal in the noise. Quiet fire. Masculine sovereignty in motion.</p>
-  </header>
+  <h1>Clarity Over Chaos</h1>
+  <p class="intro">
+    Clarity Over Chaos is more than a phrase — it's a lens.  
+    This space exists for men forging sovereignty in a noisy world.  
+    Through visual identity, written frameworks, and high-signal feedback loops,  
+    we cut through emotional static and return to grounded power.
+  </p>
 
-  <section class="section">
-    <h2>Our Mission</h2>
+  <div class="mission-section">
+    <h2>Mission</h2>
     <p>
-      Clarity Over Chaos is the sovereign response to a noisy world. It exists for the man reclaiming
-      his edge — not through bravado, but through awareness, discipline, and stillness. We study the
-      feedback loop between masculine presence and modern distraction. We live by signal, not noise.
+      We believe that masculine sovereignty is not about domination — it's about direction.  
+      In a world engineered for distraction, the sovereign man moves from a grounded center.  
+      He is not easily swayed, manipulated, or fragmented.  
+      He creates structure within and signals truth without.  
+      <br><br>
+      Clarity Over Chaos exists to sharpen that edge — through content, visual cues, and feedback protocols that challenge the noise and ignite inner alignment.
     </p>
+  </div>
 
-    <h2>What is Masculine Sovereignty?</h2>
-    <p>
-      Masculine Sovereignty is a state of grounded autonomy. It’s the inner authority that allows a man
-      to move with clarity, lead with calm, and protect his energetic terrain. It doesn’t seek control
-      over others — only dominion over self. Sovereignty is stillness with a fire behind the eyes.
-    </p>
-  </section>
-
-  <section class="image-grid">
-    <figure>
-      <img src="wolf.jpg" alt="Wolf Silhouette" loading="lazy">
-      <figcaption>“Masculine presence is quiet certainty.”</figcaption>
-    </figure>
-    <figure>
-      <img src="fire.jpg" alt="Still Fire Energy" loading="lazy">
-      <figcaption>“Still fire does not need to be seen to be felt.”</figcaption>
-    </figure>
-    <figure>
-      <img src="typography.jpg" alt="Dark Typography" loading="lazy">
-      <figcaption>“Signal lives in sharp lines and silence.”</figcaption>
-    </figure>
-  </section>
+  <div class="image-container">
+    <div class="image-box">
+      <img src="Wolf3.jpg" alt="Wolf Silhouette" loading="lazy" />
+      <h2>“Move in silence. Lead with clarity.”</h2>
+    </div>
+    <div class="image-box">
+      <img src="Hand1.jpg" alt="Still Fire Energy" loading="lazy" />
+      <h2>“Power doesn’t shout. It signals.”</h2>
+    </div>
+    <div class="image-box">
+      <img src="Darkman2.jpg" alt="Dark Typography / Still Fire" loading="lazy" />
+      <h2>“Masculine presence is quiet certainty.”</h2>
+    </div>
+  </div>
 
   <div class="footer">
-    <p>Connect with us:</p>
-    <a href="https://twitter.com/MasculineIntel" target="_blank">Twitter</a>
+    Follow the movement → <a href="https://twitter.com/MasculineIntel" target="_blank">@MasculineIntel</a>
   </div>
 </body>
 </html>
