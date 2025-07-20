@@ -23,15 +23,28 @@
       letter-spacing: 1px;
       margin-bottom: 20px;
       user-select: none;
+      cursor: crosshair;
+      transition: all 0.3s ease;
+    }
+
+    h1:hover {
+      text-decoration: underline;
     }
 
     .intro {
       font-size: 1.15rem;
       max-width: 800px;
-      margin: 0 auto 60px auto;
+      margin: 0 auto 40px auto;
       line-height: 1.7;
       color: #cccccc;
       user-select: none;
+    }
+
+    .quote {
+      color: #666;
+      margin-bottom: 60px;
+      font-style: italic;
+      font-size: 1rem;
     }
 
     .image-container {
@@ -50,6 +63,14 @@
       box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       max-width: 400px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .image-box.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .image-box:hover {
@@ -95,7 +116,24 @@
         max-width: 90vw;
       }
     }
+
+    footer {
+      margin-top: 80px;
+      color: #555;
+      font-size: 0.9rem;
+      user-select: none;
+    }
   </style>
+  <script>
+    window.addEventListener("scroll", () => {
+      document.querySelectorAll('.image-box').forEach((box) => {
+        const rect = box.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 40) {
+          box.classList.add("visible");
+        }
+      });
+    });
+  </script>
 </head>
 <body>
   <h1>Clarity Over Chaos</h1>
@@ -106,19 +144,25 @@
     we cut through emotional static and return to grounded power.
   </p>
 
+  <p class="quote">"Stillness isn’t weakness — it’s signal discipline."</p>
+
   <div class="image-container">
     <div class="image-box">
       <img src="Wolf3.jpg" alt="Wolf Silhouette" />
       <h2>Wolf Silhouette</h2>
     </div>
     <div class="image-box">
-      <img src="Hand 1.jpg" alt="Still Fire Energy" />
+      <img src="Hand1.jpg" alt="Still Fire Energy" />
       <h2>Still Fire Energy</h2>
     </div>
     <div class="image-box">
-      <img src="Darkman 2.jpg" alt="Dark Typography / Still Fire" />
+      <img src="Darkman2.jpg" alt="Dark Typography / Still Fire" />
       <h2>Dark Typography / Still Fire</h2>
     </div>
   </div>
+
+  <footer>
+    © 2025 Clarity Over Chaos • Built by Masculine Intel
+  </footer>
 </body>
 </html>
