@@ -2,119 +2,213 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Clarity Over Chaos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clarity Over Chaos — Visual Identity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Georgia', serif;
+      font-family: 'Cormorant Garamond', serif;
       background-color: #0e0e0e;
       color: #e0e0e0;
       margin: 0;
-      padding: 0;
-    }
-
-    header {
-      padding: 60px 20px 40px;
+      padding: 40px 20px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       text-align: center;
-      background-color: #111111;
     }
 
-    header h1 {
-      font-size: 2.8rem;
-      font-weight: bold;
-      color: #ffffff;
-      margin: 0;
-    }
-
-    .gallery {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
-      margin-top: 40px;
-      padding: 0 20px;
-    }
-
-    .gallery img {
-      max-width: 100%;
-      border: 1px solid #333;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
-    }
-
-    .section {
-      margin: 80px auto;
-      max-width: 700px;
-      padding: 0 20px;
-      line-height: 1.8;
-      color: #cccccc;
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #f0f0f0;
+    h1 {
+      font-size: 2.7rem;
       font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      user-select: none;
+      cursor: crosshair;
+      transition: all 0.3s ease;
+    }
+
+    h1:hover {
+      text-decoration: underline;
+    }
+
+    .intro, .section {
+      font-size: 1.15rem;
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      line-height: 1.7;
+      color: #cccccc;
+      user-select: none;
+    }
+
+    .quote {
+      color: #666;
+      margin-bottom: 60px;
+      font-style: italic;
+      font-size: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #dddddd;
+      user-select: none;
+    }
+
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .image-box {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      max-width: 400px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .image-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .image-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+    }
+
+    img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      transition: transform 0.3s ease;
+      user-select: none;
+    }
+
+    img:hover {
+      transform: scale(1.02);
+    }
+
+    .image-box h2 {
+      font-size: 1.1rem;
+      color: #aaa;
+      margin-top: 10px;
+      font-weight: 400;
+      user-select: none;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .image-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .image-box {
+        max-width: 90vw;
+      }
     }
 
     footer {
-      margin-top: 100px;
-      padding: 20px 0;
-      text-align: center;
+      margin-top: 80px;
+      color: #555;
       font-size: 0.9rem;
-      color: #888;
+      user-select: none;
     }
 
-    footer a {
-      color: #aaa;
+    .twitter-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      color: #ccc;
       text-decoration: none;
+      transition: all 0.3s ease;
     }
 
-    footer a:hover {
+    .twitter-link:hover {
+      background-color: #222;
       color: #fff;
-      text-decoration: underline;
+      border-color: #666;
     }
   </style>
+  <script>
+    window.addEventListener("scroll", () => {
+      document.querySelectorAll('.image-box').forEach((box) => {
+        const rect = box.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 40) {
+          box.classList.add("visible");
+        }
+      });
+    });
+  </script>
 </head>
-
 <body>
-  <header>
-    <h1>Clarity Over Chaos</h1>
-  </header>
+  <h1>Clarity Over Chaos</h1>
+  <p class="intro">
+    Clarity Over Chaos is more than a phrase — it's a lens.  
+    This space exists for men forging sovereignty in a noisy world.  
+    Through visual identity, written frameworks, and high-signal feedback loops,  
+    we cut through emotional static and return to grounded power.
+  </p>
 
-  <div class="gallery">
-    <img src="https://i.imgur.com/IMAGE1.jpg" alt="Clarity Image 1" />
-    <img src="https://i.imgur.com/IMAGE2.jpg" alt="Clarity Image 2" />
-    <img src="https://i.imgur.com/IMAGE3.jpg" alt="Clarity Image 3" />
-    <!-- Add more images as needed -->
+  <p class="quote">"Stillness isn’t weakness — it’s signal discipline."</p>
+
+  <div class="section">
+    <div class="section-title">Our Mission</div>
+    <p>
+      To awaken masculine clarity in the modern mind. We speak to the men who no longer want to perform —  
+      but to embody. No gimmicks. No noise. Only grounded frameworks, internal precision, and signal over sentiment.  
+      This isn’t for everyone. It’s for those building inner stillness that can move mountains.
+    </p>
   </div>
 
-  <section class="section">
-    <h2>The Mission</h2>
+  <div class="section">
+    <div class="section-title">What is Masculine Sovereignty?</div>
     <p>
-      Clarity Over Chaos is a masculine lens forged in the fire of reflection and resilience.  
-      Our mission is to guide modern men through the noise — toward sovereignty, emotional clarity, and grounded power.  
-      This is not performance. This is signal. This is the return to essence.
+      Masculine Sovereignty is the ability to lead yourself — emotionally, financially, and spiritually —  
+      without outsourcing your center to the world. It's not control over others.  
+      It's mastery over your inner state.  
+      Sovereignty is forged in solitude, refined through signal, and tested in chaos.
     </p>
-  </section>
+  </div>
 
-  <section class="section">
-    <h2>What Is Masculine Sovereignty?</h2>
-    <p>
-      Masculine sovereignty is the state of being unmoved by emotional distortion,  
-      yet deeply attuned to truth. It is the discipline to stand still while others react.  
-      It is clarity over confusion, direction over distraction, fire without frenzy.
-      <br /><br />
-      In this space, sovereignty isn’t ego — it’s signal.  
-      It’s what allows a man to lead without force, feel without losing center,  
-      and build without bending to chaos.
-    </p>
-  </section>
+  <a class="twitter-link" href="https://twitter.com/MasculineIntel" target="_blank">Follow on Twitter</a>
+
+  <div class="image-container" style="margin-top: 60px;">
+    <div class="image-box">
+      <img src="Wolf3.jpg" alt="Wolf Silhouette" />
+      <h2>Wolf Silhouette</h2>
+    </div>
+    <div class="image-box">
+      <img src="Hand1.jpg" alt="Still Fire Energy" />
+      <h2>Still Fire Energy</h2>
+    </div>
+    <div class="image-box">
+      <img src="Darkman2.jpg" alt="Dark Typography / Still Fire" />
+      <h2>Dark Typography / Still Fire</h2>
+    </div>
+  </div>
 
   <footer>
-    <p>
-      Built with signal by <a href="https://x.com/MasculineIntel" target="_blank">@MasculineIntel</a>
-    </p>
+    © 2025 Clarity Over Chaos • Built by Masculine Intel
   </footer>
 </body>
 </html>
