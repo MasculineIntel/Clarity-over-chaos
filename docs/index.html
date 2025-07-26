@@ -21,6 +21,7 @@
     header {
       text-align: center;
       padding: 40px 20px 10px 20px;
+      position: relative;
     }
 
     header img {
@@ -28,6 +29,14 @@
       height: auto;
       border-radius: 12px;
       margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    header img.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     header p {
@@ -41,6 +50,49 @@
       color: #1DA1F2;
       font-weight: bold;
       text-decoration: none;
+    }
+
+    /* Scroll Arrow */
+    .scroll-down {
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .scroll-down.visible {
+      opacity: 1;
+    }
+
+    .scroll-down span {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border-bottom: 3px solid #1DA1F2;
+      border-right: 3px solid #1DA1F2;
+      transform: rotate(45deg);
+      animation: arrowPulse 1.5s infinite;
+      filter: drop-shadow(0 0 6px rgba(29, 161, 242, 0.7));
+    }
+
+    @keyframes arrowPulse {
+      0% { transform: rotate(45deg) translateY(0); opacity: 1; }
+      50% { transform: rotate(45deg) translateY(8px); opacity: 0.6; }
+      100% { transform: rotate(45deg) translateY(0); opacity: 1; }
+    }
+
+    .intro, .mission-section, .pillars-section, .secondary-cta {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .intro.visible, .mission-section.visible, .pillars-section.visible, .secondary-cta.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .intro {
@@ -85,6 +137,14 @@
       box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       max-width: 400px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .image-box.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .image-box:hover {
@@ -96,8 +156,6 @@
       width: 100%;
       max-width: 400px;
       border-radius: 8px;
-      opacity: 0;
-      animation: fadeIn 2s forwards;
       transition: transform 0.3s ease;
     }
 
@@ -180,6 +238,47 @@
       transform: translateY(-3px);
     }
 
+    /* Secondary CTA */
+    .secondary-cta {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 80px auto;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+
+    .secondary-cta h2 {
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .secondary-cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .secondary-cta-buttons a {
+      display: inline-block;
+      background: linear-gradient(90deg, #1DA1F2, #0077b6);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .secondary-cta-buttons a:hover {
+      background: linear-gradient(90deg, #0077b6, #1DA1F2);
+      transform: translateY(-3px);
+    }
+
     .footer {
       margin-top: 80px;
       font-size: 1rem;
@@ -199,10 +298,6 @@
       border-bottom: 1px solid #fff;
     }
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
     @media (max-width: 440px) {
       .image-container { flex-direction: column; gap: 30px; }
       .image-box { max-width: 90vw; padding: 24px; }
@@ -210,6 +305,7 @@
       .pillars-section { padding: 30px 15px; }
       .pillars-highlights { flex-direction: column; gap: 20px; }
       .highlight-box { width: 100%; }
+      .secondary-cta-buttons { flex-direction: column; }
     }
   </style>
 </head>
@@ -219,6 +315,9 @@
     <img src="cocbanner.jpg" alt="Clarity Over Chaos Banner" loading="lazy" />
     <p>Masculine Sovereignty in a world gone foggy. Protocol-based clarity for modern men.</p>
     <a href="https://twitter.com/MasculineIntel" target="_blank">@MasculineIntel on Twitter</a>
+    <div class="scroll-down" onclick="document.getElementById('mission').scrollIntoView({ behavior: 'smooth' });">
+      <span></span>
+    </div>
   </header>
 
   <p class="intro">
@@ -228,7 +327,7 @@
     we cut through emotional static and return to grounded power.
   </p>
 
-  <div class="mission-section">
+  <div id="mission" class="mission-section">
     <h2>Mission</h2>
     <p>
       We believe that masculine sovereignty is not about domination — it's about direction.
@@ -275,8 +374,38 @@
     </a>
   </div>
 
+  <!-- Secondary CTA -->
+  <div class="secondary-cta">
+    <h2>Ready to Go Deeper?</h2>
+    <p>Download both guides and strengthen your foundation.</p>
+    <div class="secondary-cta-buttons">
+      <a href="7_Pillars_Divine_Masculine_COC_Optimized.pdf" target="_blank">Get 7 Pillars</a>
+      <a href="Sovereign_Field_Playbook_TM.pdf" target="_blank">Get Playbook</a>
+    </div>
+  </div>
+
   <div class="footer">
     Follow the movement → <a href="https://twitter.com/MasculineIntel" target="_blank">@MasculineIntel</a>
   </div>
+
+  <script>
+    const elements = document.querySelectorAll('header img, .intro, .mission-section, .image-box, .pillars-section, .secondary-cta');
+    const scrollArrow = document.querySelector('.scroll-down');
+
+    function handleScroll() {
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          el.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', () => {
+      handleScroll();
+      setTimeout(() => scrollArrow.classList.add('visible'), 2000);
+    });
+  </script>
 </body>
 </html>
