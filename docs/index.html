@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Clarity Over Chaos — Visual Identity</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet" />
 
   <style>
@@ -63,7 +62,6 @@
       animation-delay: 0.8s;
     }
 
-    /* Scroll Arrow */
     .scroll-down {
       position: absolute;
       bottom: -25px;
@@ -509,4 +507,46 @@
 
   <!-- Floating Buttons -->
   <a href="Sovereign_Field_Playbook_TM.pdf" target="_blank" class="download-playbook-btn">📥 Playbook</a>
-  <a href="#" class="back-to-top
+  <a href="#" class="back-to-top" id="backToTop">Top ↑</a>
+
+  <script>
+    const elements = document.querySelectorAll('header img, .intro, .mission-section, .pillars-section, .secondary-cta, .email-capture');
+    const imageBoxes = document.querySelectorAll('.image-box');
+    const scrollArrow = document.querySelector('.scroll-down');
+    const backToTop = document.getElementById('backToTop');
+
+    function handleScroll() {
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          el.classList.add('visible');
+        }
+      });
+
+      imageBoxes.forEach((box, index) => {
+        const rect = box.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          setTimeout(() => box.classList.add('visible'), index * 200);
+        }
+      });
+
+      if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    }
+
+    backToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', () => {
+      handleScroll();
+      setTimeout(() => scrollArrow.classList.add('visible'), 2000);
+    });
+  </script>
+</body>
+</html>
