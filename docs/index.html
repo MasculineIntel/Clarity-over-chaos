@@ -31,12 +31,12 @@
       margin-bottom: 20px;
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
+      animation: fadeBanner 1.5s ease forwards;
     }
 
-    header img.visible {
-      opacity: 1;
-      transform: translateY(0);
+    @keyframes fadeBanner {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     header p {
@@ -44,12 +44,23 @@
       color: #bbbbbb;
       max-width: 600px;
       margin: 10px auto 20px;
+      opacity: 0;
+      animation: fadeText 1.8s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeText {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     header a {
       color: #1DA1F2;
       font-weight: bold;
       text-decoration: none;
+      opacity: 0;
+      animation: fadeText 2s ease forwards;
+      animation-delay: 0.8s;
     }
 
     /* Scroll Arrow */
@@ -362,7 +373,6 @@
       This free guide reveals the 7 core pillars of the Divine Masculine: presence, clarity, purpose, and the fire to build your own reality.
     </p>
 
-    <!-- Highlights Row -->
     <div class="pillars-highlights">
       <div class="highlight-box">Master Presence & Direction</div>
       <div class="highlight-box">Sharpen Emotional Clarity</div>
