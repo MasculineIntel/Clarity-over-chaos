@@ -1,479 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clarity Over Chaos</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
-
-  <style>
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background: linear-gradient(to bottom, #0e0e0e, #1a1a1a);
-      color: #f0f0f0;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
-
-    /* HERO SECTION */
-    .hero-section {
-      position: relative;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95)),
-                  url('COC_Logo.png') center/contain no-repeat;
-      background-color: #0e0e0e;
-      height: 75vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      border-bottom: 2px solid #1DA1F2;
-    }
-
-    .hero-overlay {
-      background-color: rgba(0, 0, 0, 0.4);
-      padding: 30px;
-      border-radius: 12px;
-      animation: fadeInUp 1.2s ease-out;
-      max-width: 900px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .hero-logo {
-      max-width: 280px;
-      margin-bottom: 20px;
-      filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
-      animation: glowPulse 4s ease-in-out infinite;
-    }
-
-    @keyframes glowPulse {
-      0% { filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)); }
-      50% { filter: drop-shadow(0 0 16px rgba(255, 215, 0, 0.9)); }
-      100% { filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)); }
-    }
-
-    .hero-section p {
-      font-size: 1.15rem;
-      color: #ddd;
-      margin-bottom: 20px;
-      line-height: 1.6;
-      max-width: 650px;
-    }
-
-    .cta-with-image {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .mockup-img {
-      max-width: 220px;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease;
-    }
-
-    .mockup-img:hover {
-      transform: scale(1.05);
-    }
-
-    .hero-btn {
-      background: linear-gradient(90deg, #1DA1F2, #0077b6);
-      color: white;
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: bold;
-      text-decoration: none;
-      position: relative;
-      transition: transform 0.3s ease, background 0.3s ease;
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    .hero-btn::before {
-      content: "";
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(120deg, #1DA1F2, #0077b6, #1DA1F2);
-      border-radius: 10px;
-      z-index: -1;
-      filter: blur(6px);
-      animation: buttonGlow 4s linear infinite;
-    }
-
-    @keyframes buttonGlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .hero-btn:hover {
-      transform: translateY(-3px);
-      background: linear-gradient(90deg, #0077b6, #1DA1F2);
-    }
-
-    /* SCROLL DOWN ARROW */
-    .scroll-down {
-      position: relative;
-      text-align: center;
-      margin-top: -30px;
-    }
-
-    .scroll-down span {
-      display: inline-block;
-      width: 24px;
-      height: 24px;
-      border-bottom: 3px solid #1DA1F2;
-      border-right: 3px solid #1DA1F2;
-      transform: rotate(45deg);
-      margin: 0 auto;
-      animation: arrowPulse 1.5s infinite;
-      filter: drop-shadow(0 0 6px rgba(29, 161, 242, 0.7));
-    }
-
-    @keyframes arrowPulse {
-      0% { transform: rotate(45deg) translateY(0); opacity: 1; }
-      50% { transform: rotate(45deg) translateY(8px); opacity: 0.6; }
-      100% { transform: rotate(45deg) translateY(0); opacity: 1; }
-    }
-
-    /* INTRO SECTION */
-    .intro {
-      font-size: 1.1rem;
-      max-width: 850px;
-      margin: 60px auto;
-      line-height: 1.8;
-      padding: 0 20px;
-      text-align: center;
-    }
-
-    /* MISSION SECTION */
-    .mission-section {
-      max-width: 850px;
-      margin: 60px auto;
-      padding: 30px 20px;
-      background: #141414;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-      text-align: left;
-    }
-
-    .mission-section h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #fff;
-    }
-
-    .mission-section p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #ccc;
-    }
-
-    /* 7 PILLARS SECTION */
-    .pillars-section {
-      max-width: 1000px;
-      margin: 80px auto;
-      padding: 40px 20px;
-      background: linear-gradient(180deg, #1a1a1a, #0e0e0e);
-      border-radius: 12px;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
-      text-align: center;
-    }
-
-    .pillars-section h2 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-      font-family: 'Cormorant Garamond', serif;
-      color: #fff;
-    }
-
-    .pillars-section p {
-      font-size: 1.1rem;
-      color: #ddd;
-      margin-bottom: 30px;
-      line-height: 1.7;
-    }
-
-    .pillars-highlights {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      margin-bottom: 30px;
-    }
-
-    .highlight-box {
-      background: #222;
-      border-radius: 8px;
-      padding: 20px;
-      width: 250px;
-      font-size: 1rem;
-      color: #ccc;
-      transition: transform 0.3s ease, background 0.3s ease;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.03);
-    }
-
-    .highlight-box:hover {
-      transform: translateY(-5px);
-      background: #1DA1F2;
-      color: #fff;
-    }
-
-    .pillars-btn {
-      display: inline-block;
-      background: linear-gradient(90deg, #1DA1F2, #0077b6);
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 30px;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 8px;
-      position: relative;
-      transition: background 0.3s ease, transform 0.3s ease;
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    .pillars-btn::before {
-      content: "";
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(120deg, #1DA1F2, #0077b6, #1DA1F2);
-      border-radius: 10px;
-      z-index: -1;
-      filter: blur(6px);
-      animation: buttonGlow 4s linear infinite;
-    }
-
-    .pillars-btn:hover {
-      background: linear-gradient(90deg, #0077b6, #1DA1F2);
-      transform: translateY(-3px);
-    }
-
-    /* SECONDARY CTA */
-    .secondary-cta {
-      text-align: center;
-      padding: 50px 20px;
-      background: linear-gradient(135deg, #0e0e0e, #1a1a1a);
-      border-radius: 12px;
-      max-width: 1000px;
-      margin: 60px auto;
-      box-shadow: 0 0 20px rgba(255,255,255,0.05);
-    }
-
-    .secondary-cta h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      color: #fff;
-      margin-bottom: 20px;
-    }
-
-    .secondary-cta-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .secondary-cta-buttons a {
-      display: inline-block;
-      background: linear-gradient(90deg, #1DA1F2, #0077b6);
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 30px;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 8px;
-      position: relative;
-      transition: transform 0.3s ease, background 0.3s ease;
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    .secondary-cta-buttons a::before {
-      content: "";
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(120deg, #1DA1F2, #0077b6, #1DA1F2);
-      border-radius: 10px;
-      z-index: -1;
-      filter: blur(6px);
-      animation: buttonGlow 4s linear infinite;
-    }
-
-    .secondary-cta-buttons a:hover {
-      transform: translateY(-3px);
-      background: linear-gradient(90deg, #0077b6, #1DA1F2);
-    }
-
-    /* FOOTER */
-    .footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #999;
-      border-top: 1px solid #333;
-    }
-
-    .footer a {
-      color: #1DA1F2;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* ANIMATION CLASSES */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .slide-up {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-    .slide-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .zoom-in {
-      opacity: 0;
-      transform: scale(0.95);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    .zoom-in.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    @media (max-width: 768px) {
-      .hero-section h1 { font-size: 2.2rem; }
-      .hero-section p { font-size: 1rem; }
-      .highlight-box { width: 100%; }
-    }
-
-    @keyframes fadeInUp {
-      0% {opacity: 0; transform: translateY(20px);}
-      100% {opacity: 1; transform: translateY(0);}
-    }
-  </style>
-</head>
-
-<body>
-  <!-- HERO -->
-  <header class="hero-section">
-    <div class="hero-overlay fade-in">
-      <img src="COC_Logo.png" alt="Clarity Over Chaos Logo" class="hero-logo" />
-      <p>Masculine Sovereignty in a noisy world. Protocol-based clarity for modern men.</p>
-      <div class="cta-with-image">
-        <img src="Sovereign_Playbook_Mockup.png" alt="Sovereign Field Playbook" class="mockup-img" />
-        <a class="hero-btn" href="Sovereign_Field_Playbook_TM.pdf" target="_blank">
-          Download the Sovereign Field Playbook (Free)
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- SCROLL ARROW -->
-  <div class="scroll-down">
-    <span></span>
-  </div>
-
-  <!-- INTRO -->
-  <p class="intro fade-in">
-    Clarity Over Chaos is more than a phrase — it's a lens.  
-    This space exists for men forging sovereignty in a noisy world.  
-    Through visual identity, written frameworks, and high-signal feedback loops,  
-    we cut through emotional static and return to grounded power.
-  </p>
-
-  <!-- MISSION -->
-  <div class="mission-section slide-up">
-    <h2>Mission</h2>
-    <p>
-      We believe that masculine sovereignty is not about domination — it's about direction.  
-      In a world engineered for distraction, the sovereign man moves from a grounded center.  
-      He is not easily swayed, manipulated, or fragmented.  
-      He creates structure within and signals truth without.  
-      Clarity Over Chaos exists to sharpen that edge — through content, visual cues, and feedback protocols that challenge the noise and ignite inner alignment.
-    </p>
-  </div>
-
-  <!-- 7 PILLARS -->
-  <div class="pillars-section zoom-in">
-    <h2>Unlock the 7 Pillars of the Divine Masculine</h2>
-    <p>
-      Become the man who leads with clarity, purpose, and magnetic presence.<br>
-      This free guide reveals the 7 core pillars of the Divine Masculine: presence, clarity, purpose, and the fire to build your own reality.
-    </p>
-    <div class="pillars-highlights">
-      <div class="highlight-box">Master Presence & Direction</div>
-      <div class="highlight-box">Sharpen Emotional Clarity</div>
-      <div class="highlight-box">Create Magnetic Polarity</div>
-    </div>
-    <a class="pillars-btn" href="7_Pillars_Divine_Masculine_COC_Optimized.pdf" target="_blank">
-      Download the Free Guide
+<header class="hero-section">
+  <div class="hero-overlay">
+    <h1>Clarity Over Chaos</h1>
+    <p>Masculine Sovereignty in a noisy world. Protocol-based clarity for modern men.</p>
+    <a class="hero-btn" href="Sovereign_Field_Playbook_TM.pdf" target="_blank">
+      Download the Sovereign Field Playbook (Free)
     </a>
   </div>
+</header>
 
-  <!-- SECONDARY CTA -->
-  <div class="secondary-cta fade-in">
-    <h2>Ready to go deeper?</h2>
-    <p>Download both guides and take the next step into masculine sovereignty.</p>
-    <div class="secondary-cta-buttons">
-      <a href="7_Pillars_Divine_Masculine_COC_Optimized.pdf" target="_blank">Get 7 Pillars</a>
-      <a href="Sovereign_Field_Playbook_TM.pdf" target="_blank">Get Playbook</a>
-    </div>
-  </div>
+<style>
+.hero-section {
+  position: relative;
+  background: url('cocbanner.jpg') center/cover no-repeat;
+  height: 70vh;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-  <!-- FOOTER -->
-  <div class="footer">
-    Follow the movement → <a href="https://twitter.com/MasculineIntel" target="_blank">@MasculineIntel</a>
-  </div>
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 800px;
+}
 
-  <!-- SCROLL ANIMATION SCRIPT -->
-  <script>
-    const animatedElements = document.querySelectorAll('.fade-in, .slide-up, .zoom-in');
+.hero-section h1 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 15px;
+  animation: fadeInUp 1s ease-out;
+}
 
-    function handleScroll() {
-      animatedElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) {
-          el.classList.add('visible');
-        }
-      });
-    }
+.hero-section p {
+  font-size: 1.2rem;
+  color: #ddd;
+  margin-bottom: 25px;
+  animation: fadeInUp 1.3s ease-out;
+}
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('load', handleScroll);
-  </script>
-</body>
-</html>
+.hero-btn {
+  background: linear-gradient(90deg, #1DA1F2, #0077b6);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(90deg, #0077b6, #1DA1F2);
+}
+
+@keyframes fadeInUp {
+  0% {opacity: 0; transform: translateY(20px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+</style>
