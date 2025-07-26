@@ -95,13 +95,13 @@
       100% { transform: rotate(45deg) translateY(0); opacity: 1; }
     }
 
-    .intro, .mission-section, .pillars-section, .secondary-cta {
+    .intro, .mission-section, .pillars-section, .secondary-cta, .email-capture {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 1s ease, transform 1s ease;
     }
 
-    .intro.visible, .mission-section.visible, .pillars-section.visible, .secondary-cta.visible {
+    .intro.visible, .mission-section.visible, .pillars-section.visible, .secondary-cta.visible, .email-capture.visible {
       opacity: 1;
       transform: translateY(0);
     }
@@ -292,6 +292,61 @@
       transform: translateY(-3px);
     }
 
+    /* Email Capture */
+    .email-capture {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: 60px auto;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+
+    .email-capture h2 {
+      font-size: 1.7rem;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .email-capture p {
+      color: #cccccc;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .email-capture form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .email-capture input[type="email"] {
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      min-width: 220px;
+    }
+
+    .email-capture button {
+      background: linear-gradient(90deg, #1DA1F2, #0077b6);
+      color: #ffffff;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .email-capture button:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(90deg, #0077b6, #1DA1F2);
+    }
+
     /* Floating Buttons */
     .back-to-top, .download-playbook-btn {
       position: fixed;
@@ -438,52 +493,20 @@
     </div>
   </div>
 
+  <!-- Email Capture -->
+  <div class="email-capture">
+    <h2>Stay Connected</h2>
+    <p>Get high-signal insights and updates from Clarity Over Chaos.</p>
+    <form action="mailto:MasculineIntel@proton.me" method="POST" enctype="text/plain">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+
   <div class="footer">
     Follow the movement → <a href="https://twitter.com/MasculineIntel" target="_blank">@MasculineIntel</a>
   </div>
 
   <!-- Floating Buttons -->
   <a href="Sovereign_Field_Playbook_TM.pdf" target="_blank" class="download-playbook-btn">📥 Playbook</a>
-  <a href="#" class="back-to-top" id="backToTop">Top ↑</a>
-
-  <script>
-    const elements = document.querySelectorAll('header img, .intro, .mission-section, .pillars-section, .secondary-cta');
-    const imageBoxes = document.querySelectorAll('.image-box');
-    const scrollArrow = document.querySelector('.scroll-down');
-    const backToTop = document.getElementById('backToTop');
-
-    function handleScroll() {
-      elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) {
-          el.classList.add('visible');
-        }
-      });
-
-      imageBoxes.forEach((box, index) => {
-        const rect = box.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) {
-          setTimeout(() => box.classList.add('visible'), index * 200);
-        }
-      });
-
-      if (window.scrollY > 300) {
-        backToTop.classList.add('visible');
-      } else {
-        backToTop.classList.remove('visible');
-      }
-    }
-
-    backToTop.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('load', () => {
-      handleScroll();
-      setTimeout(() => scrollArrow.classList.add('visible'), 2000);
-    });
-  </script>
-</body>
-</html>
+  <a href="#" class="back-to-top
